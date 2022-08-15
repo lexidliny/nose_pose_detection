@@ -19,12 +19,14 @@ target_include_directories(noseDetect
                            ${PCL_INCLUDE_DIRS}
                            ${PROJECT_SOURCE_DIR}/src/facemesh
                            ${PROJECT_SOURCE_DIR}/tflite-dist/include/
+                           ${OpenCV_INCLUDE_DIRS}
                            )
 
 target_link_directories(${LIB_NAME} 
                     PUBLIC
                         ${PROJECT_SOURCE_DIR}/lib
                         ${PCL_LIBRARY_DIRS}
+                        
                         )
 
 message(${PROJECT_SOURCE_DIR}/include)

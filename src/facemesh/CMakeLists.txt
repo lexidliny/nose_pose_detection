@@ -10,7 +10,7 @@ set_property(TARGET tensorflowlite PROPERTY IMPORTED_LOCATION
 ${PROJECT_SOURCE_DIR}/tflite-dist/libs/linux_x64/libtensorflowlite.so)
 
 
-
+find_package(OpenCV REQUIRED)
 add_library(${LIB_NAME} STATIC)
 
 target_sources(${LIB_NAME}
@@ -33,9 +33,11 @@ set_target_properties(${LIB_NAME} PROPERTIES
                      )
 
 target_include_directories(${LIB_NAME} PRIVATE
+                            ${OpenCV_INCLUDE_DIRS}
                             ${PROJECT_SOURCE_DIR}/src/facemesh
                             ${TFLite_INCLUDE_DIRS}
                             ${PROJECT_SOURCE_DIR}/tflite-dist/include/
+                            
                             )
 
 
@@ -44,4 +46,5 @@ target_link_directories(${LIB_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/tflite-dist/)
 target_link_libraries(${LIB_NAME} PRIVATE
                         PRIVATE pthread
                       tensorflowlite
+                      ${OpenCV_LIBS}
                      )
