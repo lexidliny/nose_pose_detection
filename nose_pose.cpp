@@ -20,7 +20,7 @@ int main(int argc,char** argv)
     std::cout << "test" << std::endl;
     while(1)
     {
-
+        
         rs2::frameset frames = pipe.wait_for_frames();
         rs2::align align_to_color(RS2_STREAM_COLOR);
         rs2::frameset alignedframe = align_to_color.process(frames);
